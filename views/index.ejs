@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas</title>
+</head>
+<body>
+    <h1>Lista de tarefas</h1>
+    <ul>
+        <% if (itens.length > 0) { %>
+            <% itens.forEach((item, index) => { %>
+                <li>
+                    ID: <%= item.id %> | Nome: <%= item.nome %> | Status: <%= item.status %> |
+                    <a href="/tarefas/<%= index %>/editar">Editar</a> |
+                    <form action="/tarefas/<%= item.id %>?_method=DELETE" method="POST" style="display:inline;">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</button>
+                    </form>
+                </li>
+            <% }) %>
+        <% } else { %>
+            <li>Ainda sem tarefas</li>
+        <% } %>
+    </ul>
+    
+    
+    <a href="/tarefas/novo">Adicionar Tarefas</a> <br>
+    <a href="/tarefas/?status=true">Filtrar por True</a> <br>
+    <a href="/tarefas/?status=false">Filtrar por False</a>
+</body>
+</html>
+

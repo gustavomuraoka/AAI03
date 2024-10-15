@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Item</title>
+</head>
+<body>
+    <form action="/tarefas/<%= id %>?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="put">
+        <label>Nome: <input type="text" name="item[Nome]" value="<%= item.nome %>"></label><br>
+        <label>Status: <input type="checkbox" name="item[status]"></label><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <a href="/">Voltar</a>
+</body>
+</html>
+
